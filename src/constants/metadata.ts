@@ -2,6 +2,12 @@ import type { Row } from "../types/RowTypes";
 
 export const rows: Row[] = [
   {
+    type: "car",
+    direction: false,
+    speed: 1,
+    vehicles: [{ initialTileIndex: 2, color: 0xff0000 }],
+  },
+  {
     type: "forest",
     trees: [
       { tileIndex: -3, height: 50 },
