@@ -15,4 +15,10 @@ export const rows: Row[] = [
       { tileIndex: 5, height: 50 },
     ],
   },
+  {
+    type: "truck",
+    direction: true,
+    speed: 0,
+    vehicles: [{ initialTileIndex: -4, color: 0x00ff00 }],
+  },
 ];
