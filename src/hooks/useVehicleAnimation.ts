@@ -3,7 +3,11 @@ import { tileSize, minTileIndex, maxTileIndex } from "../constants/tiles";
 import type { RefObject } from "react";
 import type { Group } from "three";
 
-export const useVehicleAnimation = (ref: RefObject<Group | null>, direction: boolean, speed: number) => {
+export const useVehicleAnimation = (
+  ref: RefObject<Group | null>,
+  direction: boolean,
+  speed: number,
+) => {
   useFrame((state, delta) => {
     if (!ref.current) return;
     const vehicle = ref.current;
@@ -23,4 +27,4 @@ export const useVehicleAnimation = (ref: RefObject<Group | null>, direction: boo
           : vehicle.position.x - speed * delta;
     }
   });
-}
+};
