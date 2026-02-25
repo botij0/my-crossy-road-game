@@ -1,6 +1,8 @@
-import type { ColorRepresentation } from "three";
+import type { ColorRepresentation, Group } from "three";
 import { tileSize } from "../constants/tiles";
 import { Wheel } from "./Wheel";
+import { useRef } from "react";
+import { useVehicleAnimation } from "../hooks/useVehicleAnimation";
 
 type Props = {
   rowIndex: number;
@@ -11,10 +13,15 @@ type Props = {
 }
 
 export const Truck = ({ rowIndex, initialTileIndex, direction, speed, color }: Props) => {
+
+  const truck = useRef<Group>(null);
+  useVehicleAnimation(truck, direction, speed);
+
   return (
     <group
       position-x={initialTileIndex * tileSize}
       rotation-z={direction ? 0 : Math.PI}
+      ref={truck}
     >
       <mesh position={[-15, 0, 25]} castShadow receiveShadow>
         <boxGeometry args={[70, 35, 35]} />
